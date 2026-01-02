@@ -10,7 +10,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
           <div className="space-y-4">
-            <h3 className="font-display text-3xl text-gold-gradient">VICLU STORE</h3>
+            {/* CORRECCIÓN: text-gold-gradient -> text-platinum-gradient */}
+            <h3 className="font-display text-3xl text-platinum-gradient">VICLU STORE</h3>
             <p className="font-editorial text-muted-foreground italic">
               Comodidad deportiva, estilo urbano
             </p>

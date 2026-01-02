@@ -1,73 +1,52 @@
-# Welcome to your Lovable project
+# Viclu Store | Streetwear Premium
 
-## Project info
+Catálogo digital exclusivo de moda urbana para **Viclu Store**. Este proyecto presenta la nueva colección 2025 con una identidad visual "Platinum" (Plateado/Gris) moderna y sofisticada.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## 🚀 Tecnologías
 
-## How can I edit this code?
+Este proyecto está construido con un stack moderno y optimizado:
 
-There are several ways of editing your application.
+- **Framework**: [React](https://react.dev/) + [Vite](https://vitejs.dev/)
+- **Estilos**: [Tailwind CSS](https://tailwindcss.com/)
+- **UI Components**: shadcn/ui (Radix Primitives)
+- **Iconos**: Lucide React
 
-**Use Lovable**
+## 🛠️ Instalación y Uso
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+1. **Clonar el repositorio**
+   ```bash
+   git clone <URL_DEL_REPO>
+   cd viclu-catalog
+   ```
 
-Changes made via Lovable will be committed automatically to this repo.
+2. **Instalar dependencias**
+   ```bash
+   npm install
+   ```
 
-**Use your preferred IDE**
+3. **Iniciar servidor de desarrollo**
+   ```bash
+   npm run dev
+   ```
+   El sitio estará disponible en `http://localhost:8080`.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+4. **Construir para producción**
+   ```bash
+   npm run build
+   ```
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 🎨 Identidad Visual (Platinum Theme)
 
-Follow these steps:
+El proyecto ha migrado de una identidad "Gold" a "Platinum". 
+- **Colores Principales**: Escala de grises, Plata `hsl(210, 20%, 80%)`, Asfalto `hsl(0, 0%, 6%)`.
+- **Tipografías**: Bebas Neue (Títulos), Playfair Display (Editorial), Inter (Cuerpo).
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 📁 Estructura del Proyecto
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+- `src/components`: Componentes de UI reutilizables.
+- `src/lib/constants.ts`: "Fuente de verdad" para assets y textos globales.
+- `src/index.css`: Definiciones de variables CSS y estilos globales.
+- `tailwind.config.ts`: Configuración del tema y sistema de diseño.
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+---
+© 2025 Viclu Store. Todos los derechos reservados.

@@ -1,16 +1,20 @@
 import type { Config } from "tailwindcss";
+import tailwindAnimate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
-  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
+  content: [
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
       center: true,
       padding: "1.5rem",
-      screens: {
-        "2xl": "1400px",
-      },
+      screens: { "2xl": "1400px" },
     },
     extend: {
       colors: {
@@ -47,15 +51,18 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // --- IDENTIDAD LIMPIA (SIN GOLD) ---
         brand: {
           dark: "hsl(var(--brand-dark))",
-          gold: "hsl(var(--brand-gold))",
-          "gold-muted": "hsl(var(--brand-gold-muted))",
+          platinum: "hsl(var(--brand-platinum))",
+          "platinum-muted": "hsl(var(--brand-platinum-muted))",
+          // ¡Puente "Gold" eliminado! El código ahora es estricto.
         },
         surface: {
           DEFAULT: "hsl(var(--surface))",
           elevated: "hsl(var(--surface-elevated))",
         },
+        // ... sidebar colors ...
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -67,6 +74,7 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
       },
+      // ... borderRadius, keyframes, animation ...
       fontFamily: {
         display: ["Bebas Neue", "sans-serif"],
         editorial: ["Playfair Display", "serif"],
@@ -78,26 +86,11 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
-        },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
-        },
-        shimmer: {
-          "0%": { backgroundPosition: "-200% 0" },
-          "100%": { backgroundPosition: "200% 0" },
-        },
-        float: {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-10px)" },
-        },
-        "slide-up": {
-          from: { opacity: "0", transform: "translateY(20px)" },
-          to: { opacity: "1", transform: "translateY(0)" },
-        },
+        "accordion-down": { from: { height: "0" }, to: { height: "var(--radix-accordion-content-height)" } },
+        "accordion-up": { from: { height: "var(--radix-accordion-content-height)" }, to: { height: "0" } },
+        shimmer: { "0%": { backgroundPosition: "-200% 0" }, "100%": { backgroundPosition: "200% 0" } },
+        float: { "0%, 100%": { transform: "translateY(0)" }, "50%": { transform: "translateY(-10px)" } },
+        "slide-up": { from: { opacity: "0", transform: "translateY(20px)" }, to: { opacity: "1", transform: "translateY(0)" } },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -107,10 +100,11 @@ export default {
         "slide-up": "slide-up 0.6s ease forwards",
       },
       backgroundImage: {
-        "gold-gradient": "linear-gradient(135deg, hsl(43, 66%, 52%) 0%, hsl(43, 80%, 65%) 50%, hsl(43, 66%, 52%) 100%)",
+        "platinum-gradient": "linear-gradient(135deg, hsl(210, 20%, 70%) 0%, hsl(210, 20%, 95%) 50%, hsl(210, 20%, 70%) 100%)",
         "dark-gradient": "linear-gradient(180deg, hsl(0, 0%, 6%) 0%, hsl(0, 0%, 10%) 100%)",
+        // Gold Gradient Eliminado
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindAnimate],
 } satisfies Config;

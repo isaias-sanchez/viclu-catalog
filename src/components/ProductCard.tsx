@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Product } from '@/types/product';
 import { formatPrice, generateWhatsAppLink } from '@/lib/productStore';
 import { MessageCircle } from 'lucide-react';
+import { ASSETS } from '@/lib/constants';
 
 interface ProductCardProps {
   product: Product;
@@ -16,75 +17,56 @@ const ProductCard = ({ product }: ProductCardProps) => {
     window.open(link, '_blank', 'noopener,noreferrer');
   };
 
-  const displayImage = imageError 
-    ? 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=500&q=80'
-    : isHovered && product.imageHoverUrl 
-      ? product.imageHoverUrl 
-      : product.imageUrl;
+  const displayImage = imageError ? ASSETS.placeholder : product.imageUrl;
 
   return (
-    <article 
-      className="group relative bg-card rounded overflow-hidden card-hover gold-border-animated"
+    <article
+      className="group relative bg-card rounded overflow-hidden card-hover platinum-border-animated"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Image Container */}
-      <div className="relative aspect-square img-zoom bg-surface">
+      <div className="aspect-[4/5] overflow-hidden bg-muted relative img-zoom">
         <img
-          src={displayImage}
+          src={isHovered && product.imageHoverUrl ? product.imageHoverUrl : displayImage}
           alt={product.name}
-          className="w-full h-full object-cover"
           onError={() => setImageError(true)}
-          loading="lazy"
+          className="w-full h-full object-cover"
         />
-        
+
         {/* Brand Badge */}
-        <div className="absolute top-3 left-3 px-3 py-1 bg-background/80 backdrop-blur-sm text-xs font-body font-medium uppercase tracking-wider text-foreground">
-          {product.brand}
+        <div className="absolute top-3 left-3 bg-brand-dark/90 backdrop-blur-sm px-3 py-1 border border-brand-platinum/20">
+          <span className="text-xs font-display tracking-widest text-brand-platinum uppercase">
+            {product.brand}
+          </span>
         </div>
-        
+
         {/* Quick Buy Overlay */}
-        <div 
-          className={`absolute inset-0 bg-background/60 backdrop-blur-sm flex items-center justify-center transition-opacity duration-300 ${
-            isHovered ? 'opacity-100' : 'opacity-0'
-          }`}
-        >
+        <div className={`absolute inset-0 bg-black/40 backdrop-blur-[2px] flex items-center justify-center transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
           <button
             onClick={handleWhatsAppClick}
-            className="flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-body font-semibold uppercase tracking-wide transition-all duration-300 hover:scale-105 pulse-gold"
+            className="flex items-center gap-2 px-6 py-3 bg-brand-platinum text-brand-dark font-body font-semibold uppercase tracking-wide transition-all duration-300 hover:scale-105 pulse-platinum"
           >
             <MessageCircle className="w-5 h-5" />
-            Comprar
+            Consultar
           </button>
         </div>
       </div>
-      
-      {/* Product Info */}
-      <div className="p-4 space-y-2">
-        <div className="flex items-start justify-between gap-2">
-          <h3 className="font-body font-medium text-foreground leading-tight line-clamp-2">
-            {product.name}
-          </h3>
-        </div>
-        
-        <div className="flex items-center justify-between">
-          <span className="text-xs font-body uppercase text-muted-foreground tracking-wide">
-            {product.category}
-          </span>
-          <span className="font-display text-xl text-primary">
+
+      {/* Info Content */}
+      <div className="p-4 space-y-2 relative bg-gradient-to-b from-card to-brand-dark/50">
+        <div className="flex justify-between items-start">
+          <div>
+            <h3 className="font-body font-bold text-lg text-foreground leading-tight mb-1 group-hover:text-brand-platinum transition-colors">
+              {product.name}
+            </h3>
+            <p className="text-sm text-muted-foreground capitalize">{product.category} • {product.color}</p>
+          </div>
+          <span className="font-display text-xl tracking-wide text-brand-platinum">
             {formatPrice(product.price)}
           </span>
         </div>
       </div>
-      
-      {/* Bottom WhatsApp Bar (Mobile) */}
-      <button
-        onClick={handleWhatsAppClick}
-        className="w-full py-3 bg-primary text-primary-foreground font-body font-semibold uppercase tracking-wide text-sm flex items-center justify-center gap-2 transition-all duration-300 hover:bg-primary/90 md:hidden"
-      >
-        <MessageCircle className="w-4 h-4" />
-        Comprar por WhatsApp
-      </button>
     </article>
   );
 };

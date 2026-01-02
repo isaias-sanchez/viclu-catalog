@@ -6,130 +6,51 @@
 
 @layer base {
   :root {
-    /* Brand Colors - Streetwear Premium */
+    /* --- BRAND IDENTITY: PLATINUM URBAN (CLEAN) --- */
     --brand-dark: 0 0% 6%;
-    --brand-gold: 43 66% 52%;
-    --brand-gold-muted: 43 40% 35%;
-    --text-main: 55 41% 91%;
-    --surface: 0 0% 10%;
-    --surface-elevated: 0 0% 14%;
-    
+    /* Definición única de Platinum */
+    --brand-platinum: 210 20% 80%;
+    --brand-platinum-muted: 210 10% 40%;
+
     /* Semantic Tokens */
     --background: 0 0% 6%;
-    --foreground: 55 41% 91%;
-    
+    --foreground: 210 20% 95%;
     --card: 0 0% 10%;
-    --card-foreground: 55 41% 91%;
-    
+    --card-foreground: 210 20% 95%;
     --popover: 0 0% 10%;
-    --popover-foreground: 55 41% 91%;
-    
-    --primary: 43 66% 52%;
+    --popover-foreground: 210 20% 95%;
+    --primary: 210 20% 80%;
     --primary-foreground: 0 0% 6%;
-    
     --secondary: 0 0% 14%;
-    --secondary-foreground: 55 41% 91%;
-    
+    --secondary-foreground: 210 20% 95%;
     --muted: 0 0% 18%;
-    --muted-foreground: 55 20% 60%;
-    
-    --accent: 43 66% 52%;
+    --muted-foreground: 215 15% 60%;
+    --accent: 210 20% 80%;
     --accent-foreground: 0 0% 6%;
-    
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
-    
     --border: 0 0% 20%;
     --input: 0 0% 18%;
-    --ring: 43 66% 52%;
-    
+    --ring: 210 20% 80%;
     --radius: 0.25rem;
-    
-    /* Sidebar */
-    --sidebar-background: 0 0% 8%;
-    --sidebar-foreground: 55 41% 91%;
-    --sidebar-primary: 43 66% 52%;
-    --sidebar-primary-foreground: 0 0% 6%;
-    --sidebar-accent: 0 0% 14%;
-    --sidebar-accent-foreground: 55 41% 91%;
-    --sidebar-border: 0 0% 18%;
-    --sidebar-ring: 43 66% 52%;
-    
-    /* Typography */
-    --font-display: 'Bebas Neue', sans-serif;
-    --font-editorial: 'Playfair Display', serif;
-    --font-body: 'Inter', sans-serif;
-    
-    /* Shadows */
-    --shadow-gold: 0 0 30px hsla(43, 66%, 52%, 0.15);
-    --shadow-elevated: 0 8px 32px hsla(0, 0%, 0%, 0.4);
-    
-    /* Transitions */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-  
-  body {
-    @apply bg-background text-foreground antialiased;
-    font-family: var(--font-body);
-  }
-  
-  h1, h2, h3, .display-text {
-    font-family: var(--font-display);
-    letter-spacing: 0.05em;
-  }
-  
-  .editorial-text {
-    font-family: var(--font-editorial);
+    --shadow-platinum: 0 0 30px hsla(210, 20%, 80%, 0.15);
   }
 }
 
 @layer components {
-  /* Gold Glow Effect */
-  .gold-glow {
-    box-shadow: var(--shadow-gold);
-  }
-  
-  .gold-glow-hover:hover {
-    box-shadow: 0 0 40px hsla(43, 66%, 52%, 0.3);
-  }
-  
-  /* Gold Text Gradient */
-  .text-gold-gradient {
-    background: linear-gradient(135deg, hsl(43, 66%, 52%) 0%, hsl(43, 80%, 65%) 50%, hsl(43, 66%, 52%) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  
-  /* Card Hover Effect */
-  .card-hover {
-    transition: var(--transition-smooth);
-  }
-  
-  .card-hover:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-elevated);
-  }
-  
-  /* Gold Border Animation */
-  .gold-border-animated {
+
+  /* Platinum Border Animation */
+  .platinum-border-animated {
     position: relative;
     overflow: hidden;
   }
-  
-  .gold-border-animated::before {
+
+  .platinum-border-animated::before {
     content: '';
     position: absolute;
     inset: 0;
     border: 1px solid transparent;
-    background: linear-gradient(135deg, hsl(var(--brand-gold)) 0%, transparent 50%, hsl(var(--brand-gold)) 100%) border-box;
+    background: linear-gradient(135deg, hsl(var(--brand-platinum)) 0%, transparent 50%, hsl(var(--brand-platinum)) 100%) border-box;
     -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
     mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
@@ -137,64 +58,61 @@
     opacity: 0;
     transition: opacity 0.3s ease;
   }
-  
-  .gold-border-animated:hover::before {
+
+  .platinum-border-animated:hover::before {
     opacity: 1;
   }
-  
-  /* Scroll Fade In */
-  .fade-in-up {
-    animation: fadeInUp 0.6s ease forwards;
+
+  /* Pulse Platinum (Única fuente de verdad para la animación) */
+  .pulse-platinum {
+    animation: pulsePlatinum 2s ease-in-out infinite;
   }
-  
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
+
+  @keyframes pulsePlatinum {
+
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 hsla(210, 20%, 80%, 0.4);
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* Pulse Gold */
-  .pulse-gold {
-    animation: pulseGold 2s ease-in-out infinite;
-  }
-  
-  @keyframes pulseGold {
-    0%, 100% {
-      box-shadow: 0 0 0 0 hsla(43, 66%, 52%, 0.4);
-    }
+
     50% {
-      box-shadow: 0 0 0 10px hsla(43, 66%, 52%, 0);
+      box-shadow: 0 0 0 10px hsla(210, 20%, 80%, 0);
     }
   }
-  
-  /* Image Zoom on Hover */
+
+  /* Text Gradient */
+  .text-platinum-gradient {
+    background: linear-gradient(135deg, hsl(210, 20%, 70%) 0%, hsl(210, 20%, 95%) 50%, hsl(210, 20%, 70%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Utilities */
   .img-zoom {
     overflow: hidden;
   }
-  
+
   .img-zoom img {
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  
+
   .img-zoom:hover img {
     transform: scale(1.08);
   }
-  
-  /* Filter Button Active State */
-  .filter-active {
-    @apply bg-primary text-primary-foreground;
+
+  .card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  
-  /* Subtle Noise Texture */
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+  }
+
   .noise-texture {
     position: relative;
   }
-  
+
   .noise-texture::after {
     content: '';
     position: absolute;
@@ -203,16 +121,4 @@
     opacity: 0.03;
     pointer-events: none;
   }
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-  
-  .stagger-1 { animation-delay: 0.1s; }
-  .stagger-2 { animation-delay: 0.2s; }
-  .stagger-3 { animation-delay: 0.3s; }
-  .stagger-4 { animation-delay: 0.4s; }
-  .stagger-5 { animation-delay: 0.5s; }
 }
